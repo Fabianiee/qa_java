@@ -1,0 +1,42 @@
+# Created at 2024-08-15T20:37:23.042
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'FATAL ERROR in native method: processing of -javaagent failed, processJavaStart failed'.
+
+# Created at 2024-08-15T20:37:23.100
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)'.
+
+# Created at 2024-08-15T20:37:23.101
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'V  [jvm.dll+0x6e26e9]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.105
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'V  [jvm.dll+0x3f48e3]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.106
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'V  [jvm.dll+0x451b3a]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.107
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'C  [instrument.dll+0x27b1]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.108
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'V  [jvm.dll+0x5a8e3e]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.108
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'V  [jvm.dll+0x826b86]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.109
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'V  [jvm.dll+0x45bd5e]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.110
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'V  [jvm.dll+0x45dbe1]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.111
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'C  [jli.dll+0x52a3]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.111
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'C  [ucrtbase.dll+0x21bb2]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.112
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'C  [KERNEL32.DLL+0x17374]  (no source info available)'.
+
+# Created at 2024-08-15T20:37:23.126
+Corrupted channel by directly writing to native stream in forked JVM 1. Stream 'C  [ntdll.dll+0x4cc91]  (no source info available)'.
+
