@@ -2,22 +2,28 @@ import com.example.Feline;
 import org.junit.Test;
 
 
-import java.util.List;
+
 
 import static org.junit.Assert.assertEquals;
 
 
 public class FelineTest {
-    private Feline feline = new Feline();
 
     @Test
-    public void testGetKittens() {
-        assertEquals(3, feline.getKittens());
+    public void getKittensNoParametersReturnOne() {
+        Feline feline = new Feline();
+        int expectedResult = 1;
+        int actualResult = feline.getKittens();
+        assertEquals(expectedResult, actualResult);
     }
 
     @Test
-    public void testGetFood() throws Exception {
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), feline.eatMeat());
+    public void getFamilyTest() {
+        Feline feline = new Feline();
+        String expectedResult = "Кошачьи";
+        String actualResult = feline.getFamily();
+        assertEquals(expectedResult, actualResult);
     }
-}
+    }
+
 

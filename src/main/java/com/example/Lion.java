@@ -6,7 +6,7 @@ public class Lion {
 
     boolean hasMane;
 
-    public Lion(String sex, Feline mockFeline) throws Exception {
+    public Lion(String sex) throws Exception {
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
@@ -16,10 +16,10 @@ public class Lion {
         }
     }
 
-    Feline feline = new Feline();
+    public Feline feline = new Feline();
 
     public int getKittens() {
-        return feline.getKittens(3);
+        return feline.getKittens();
     }
 
     public boolean doesHaveMane() {

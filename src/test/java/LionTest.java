@@ -1,47 +1,64 @@
 import com.example.Feline;
 import com.example.Lion;
-import com.example.Predator;
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.lenient;
 
+@RunWith(MockitoJUnitRunner.class)
 public class LionTest {
-    private Predator mockPredator;
-    private Lion lion;
+    @Mock
+    Feline feline;
+    @Test
+    public void getKittensReturnCorrectValue() throws Exception {
+                lenient().when(feline.getKittens()).thenReturn(1);
 
-    @Before
-    public void setUp() throws Exception {
-        mockPredator = Mockito.mock(Feline.class);
-        lion = new Lion("Самец", (Feline) mockPredator);
+        Lion lion = new Lion("Самец");
+              lion.feline = feline;
+        int actualAmountOfKittens = lion.getKittens();
+        assertEquals(1, actualAmountOfKittens);
     }
 
     @Test
-    public void testDoesHaveMane() {
-        assertTrue(lion.doesHaveMane());
+    public void doesHaveManeShouldReturnTrueForMaleLion() throws Exception {
+        Lion lion = new Lion("Самец");
+
+        boolean actualResult = lion.doesHaveMane();
+
+        assertTrue(actualResult);
     }
 
     @Test
-    public void testGetKittens() {
-        when(mockPredator.getKittens()).thenReturn(3);
-        assertEquals(3, lion.getKittens());
+    public void doesHaveManeShouldReturnFalseForFemaleLion() throws Exception {
+        Lion lion = new Lion("Самка");
+
+        boolean actualResult = lion.doesHaveMane();
+
+        assertFalse(actualResult);
+    }
+
+    @Test(expected = Exception.class)
+    public void lionConstructorShouldThrowExceptionForInvalidGender() throws Exception {
+        new Lion("Тест");
     }
 
     @Test
-    public void testGetFood() throws Exception {
-        when(mockPredator.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
+    public void getFoodTest() throws Exception {
+                List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
+        lenient().when(feline.getFood("Хищник")).thenReturn(expectedList);
+
+        Lion lion = new Lion("Самка");
+
+                lion.feline = feline;
+
+        List<String> actualList = lion.getFood();
+
+        assertEquals(expectedList, actualList);
     }
 
-    @Test
-    public void testLionSex() throws Exception {
-        Lion lion = new Lion("Самка", (Feline) mockPredator);
-        assertNotNull(lion);
-    }
 }

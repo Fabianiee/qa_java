@@ -1,49 +1,34 @@
 import com.example.Cat;
 import com.example.Feline;
-import com.example.Lion;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.when;
 
-
+@RunWith(MockitoJUnitRunner.class)
 public class CatTest {
-    private Feline mockFeline;
-    private Cat cat;
+    @Mock
+    Feline feline;
 
-    @Before
-    public void setUp() throws Exception {
-        mockFeline = Mockito.mock(Feline.class);
-        cat = new Cat(mockFeline);
+    @Test
+    public void getSoundTest() {
+        Cat cat = new Cat(feline);
+        String expectedResult = "Мяу";
+        String actualResult = cat.getSound();
+        assertEquals(expectedResult, actualResult);
     }
 
     @Test
-    public void testGetSound() {
-        when(mockFeline.getSound()).thenReturn("Мяу");
-        assertEquals("Мяу", cat.getSound());
-    }
-
-    @Test
-    public void testGetKittens() {
-        when(mockFeline.getKittens()).thenReturn(3);
-        assertEquals(3, cat.getKittens());
-    }
-
-    @Test
-    public void testGetFood() throws Exception {
-        when(mockFeline.eatMeat()).thenReturn(List.of("Животные", "Птицы"));
-        assertEquals(List.of("Животные", "Птицы"), cat.getFood());
-    }
-
-    @Test
-    public void testLionSex() throws Exception {
-        Lion lion = new Lion("Самка", mockFeline);
-        assertNotNull(lion);
+    public void getFoodTest() throws Exception {
+        Cat cat = new Cat(feline);
+        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
+        List<String> actualList = cat.getFood();
+        assertEquals(expectedList, actualList);
     }
 }
