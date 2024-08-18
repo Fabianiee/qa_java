@@ -18,15 +18,14 @@ public class LionTest {
     public void getKittensReturnCorrectValue() throws Exception {
                 lenient().when(feline.getKittens()).thenReturn(1);
 
-        Lion lion = new Lion("Самец");
-              lion.feline = feline;
-        int actualAmountOfKittens = lion.getKittens();
-        assertEquals(1, actualAmountOfKittens);
+        Lion lion = new Lion("Самец", feline);
+             int actualAmountOfKittens = lion.getKittens();
+             assertEquals(1, actualAmountOfKittens);
     }
 
     @Test
     public void doesHaveManeShouldReturnTrueForMaleLion() throws Exception {
-        Lion lion = new Lion("Самец");
+        Lion lion = new Lion("Самец", feline);
 
         boolean actualResult = lion.doesHaveMane();
 
@@ -35,7 +34,7 @@ public class LionTest {
 
     @Test
     public void doesHaveManeShouldReturnFalseForFemaleLion() throws Exception {
-        Lion lion = new Lion("Самка");
+        Lion lion = new Lion("Самка", feline);
 
         boolean actualResult = lion.doesHaveMane();
 
@@ -44,7 +43,7 @@ public class LionTest {
 
     @Test(expected = Exception.class)
     public void lionConstructorShouldThrowExceptionForInvalidGender() throws Exception {
-        new Lion("Тест");
+        new Lion("Тест", feline);
     }
 
     @Test
@@ -52,9 +51,7 @@ public class LionTest {
                 List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
         lenient().when(feline.getFood("Хищник")).thenReturn(expectedList);
 
-        Lion lion = new Lion("Самка");
-
-                lion.feline = feline;
+        Lion lion = new Lion("Самка", feline);
 
         List<String> actualList = lion.getFood();
 
