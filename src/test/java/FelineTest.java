@@ -3,8 +3,8 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class FelineTest {
 
@@ -13,27 +13,35 @@ public class FelineTest {
         Feline feline = new Feline();
 
         List<String> actualFoodTypes = feline.eatMeat();
-        List<String> expectedFoodTypes = List.of("Животные", "Птицы", "Рыба");
+        String[] expectedFoodTypes = {"Животные", "Птицы", "Рыба"};
 
-            assertTrue(actualFoodTypes.containsAll(expectedFoodTypes));
+        assertArrayEquals(expectedFoodTypes, actualFoodTypes.toArray());
     }
-
     @Test
     public void eatMeatHasCorrectSize() throws Exception {
         Feline feline = new Feline();
 
         List<String> actualFoodTypes = feline.eatMeat();
-        List<String> expectedFoodTypes = List.of("Животные", "Птицы", "Рыба");
+        int expectedSize = 3;
 
-            assertEquals(expectedFoodTypes.size(), actualFoodTypes.size());
+        assertEquals(expectedSize, actualFoodTypes.size());
     }
-
     @Test
-    public void getKittensReturnSameParam() {
+    public void getKittensReturnNegativeOneForNegativeInput() {
         Feline feline = new Feline();
 
         assertEquals(-1, feline.getKittens(-1));
+    }
+    @Test
+    public void getKittensReturnOneForOneInput() {
+        Feline feline = new Feline();
+
         assertEquals(1, feline.getKittens(1));
+    }
+    @Test
+    public void getKittensReturnZeroForZeroInput() {
+        Feline feline = new Feline();
+
         assertEquals(0, feline.getKittens(0));
     }
 }
